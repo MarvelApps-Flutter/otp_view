@@ -14,8 +14,7 @@ A new flutter app for demonstrating WebView.
 <table>
   <tr>
     <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/screenshots/android/android4.png" height="480px"></td>
-    <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/screenshots/android/android5.png" height="480px"></td>
-    <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/screenshots/android/android6.png" height="480px"></td>
+    
   </tr>
  </table>
 
@@ -34,8 +33,7 @@ A new flutter app for demonstrating WebView.
 <table>
   <tr>
     <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/screenshots/ios/ios4.png" height="480px"></td>
-    <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/screenshots/ios/ios5.png" height="480px"></td>
-    <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/screenshots/ios/ios6.png" height="480px"></td>
+    
   </tr>
  </table>
 
