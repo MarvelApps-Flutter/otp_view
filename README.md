@@ -1,6 +1,14 @@
 # Flutter WebView Module
 A new flutter app for demonstrating WebView.
 
+# Demo
+  <table>
+  <tr>
+  <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/working_demo/otp_view_demo.gif" height="480px"></td>
+    </tr>
+  </table>
+
+
 # Android Screenshots
 
 <table>
@@ -37,9 +45,4 @@ A new flutter app for demonstrating WebView.
   </tr>
  </table>
 
- # Demo
-  <table>
-  <tr>
-  <td><img src="https://github.com/MarvelApps-Flutter/otp_view/blob/dev/working_demo/otp_view_demo.gif" height="480px"></td>
-    </tr>
-  </table>
+ 
