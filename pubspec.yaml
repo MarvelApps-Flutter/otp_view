@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  pinput: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,7 +39,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pinput: 
+  
   
 
   # The "flutter_lints" package below contains a set of recommended lints to

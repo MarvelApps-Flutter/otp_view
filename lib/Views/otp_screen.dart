@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:otp_view_app/Constants/assets_constants.dart';
 import 'package:otp_view_app/Constants/string_constants.dart';
-import 'package:pinput/pin_put/pin_put.dart';
+import 'package:otp_view_app/views/widgets/otp_input_Section.dart';
+import 'package:otp_view_app/views/widgets/verify_button.dart';
 
-class OTpView extends StatefulWidget {
+class OTPView extends StatefulWidget {
   final String? mobileNumber;
-  const OTpView({Key? key, required this.mobileNumber}) : super(key: key);
+  const OTPView({Key? key, required this.mobileNumber}) : super(key: key);
 
   @override
-  State<OTpView> createState() => _OTpViewState();
+  State<OTPView> createState() => _OTpViewState();
 }
 
-class _OTpViewState extends State<OTpView> {
+class _OTpViewState extends State<OTPView> {
   TextEditingController? otpDigit;
+  double screenHeight = 0;
+  double screenWidth = 0;
 
   @override
   void initState() {
@@ -26,6 +29,9 @@ class _OTpViewState extends State<OTpView> {
 
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+
+    screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -44,14 +50,13 @@ class _OTpViewState extends State<OTpView> {
           color: Colors.white,
         ),
         child: Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.04),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               otpPageHeader(),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: screenHeight * 0.02,
               ),
               imageSection(),
               const Text(
@@ -60,21 +65,21 @@ class _OTpViewState extends State<OTpView> {
                 style: TextStyle(color: Colors.black, fontSize: 20),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
+                height: screenHeight * 0.03,
               ),
               otpInputSectionText(),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.04,
+                height: screenHeight * 0.04,
               ),
-              otpInputSection(),
+              OTPInput(),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: screenHeight * 0.02,
               ),
               didntReceivedCodeSection(),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.02,
+                height: screenHeight * 0.02,
               ),
-              verifyBtnSection(),
+              VerifyButton(screenHeight: screenHeight, screenWidth: screenWidth)
             ],
           ),
         ),
@@ -87,52 +92,6 @@ class _OTpViewState extends State<OTpView> {
       StringConstants.verifyAccount,
       style: TextStyle(
           color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 30),
-    );
-  }
-
-  verifyBtnSection() {
-    return InkWell(
-      onTap: () {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return Dialog(
-                child: Container(
-                  alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        AssetConstants.popUpImage,
-                        height: 100,
-                        width: 100,
-                      ),
-                      const Text(
-                        StringConstants.verifySuccessDialogText,
-                        style: TextStyle(
-                            color: Color(0xFFFF5840),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            });
-      },
-      child: Container(
-        alignment: Alignment.center,
-        height: MediaQuery.of(context).size.height * 0.06,
-        width: MediaQuery.of(context).size.width * 0.4,
-        decoration: BoxDecoration(
-            color: Color(0xFFFF5840),
-            borderRadius: const BorderRadius.all(Radius.circular(30))),
-        child: const Text(
-          StringConstants.verify,
-          style: TextStyle(color: Colors.white, fontSize: 25),
-        ),
-      ),
     );
   }
 
@@ -149,32 +108,6 @@ class _OTpViewState extends State<OTpView> {
           style: const TextStyle(color: Color(0xFFFF5840), fontSize: 20),
         ),
       ],
-    );
-  }
-
-  Widget otpInputSection() {
-    return SizedBox(
-      child: PinPut(
-        eachFieldWidth: 50.0,
-        eachFieldHeight: 50.0,
-        controller: otpDigit,
-        fieldsCount: 4,
-        eachFieldMargin: EdgeInsets.symmetric(horizontal: 5),
-        submittedFieldDecoration: BoxDecoration(
-          color: Color(0xFFFF5840),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        selectedFieldDecoration: BoxDecoration(
-          color: Colors.orange.shade100,
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        followingFieldDecoration: BoxDecoration(
-          color: Color(0xFFFF5840),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        pinAnimationType: PinAnimationType.rotation,
-        textStyle: TextStyle(color: Colors.white, fontSize: 20.0, height: 1),
-      ),
     );
   }
 

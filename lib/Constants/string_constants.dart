@@ -14,9 +14,9 @@ class StringConstants {
   // OTP Page
   static const String sentOtpOn1 = "We have sent the OTP on ";
   static const String enterToCompleteVerification =
-      ". Enter to complete verification.";
-  static const String mobileVerifySuccess =
-      "Mobile Verification has successfully done.";
+      ". Enter OTP to complete verification.";
+  static const String mobileVerifySuccess = "";
+  // "Mobile Verification has successfully done.";
   static const String verifyAccount = "Verify Account";
   static const String didntReceivedCode = "If you didn't recieve a code! ";
   static const String resendBtnLabel = "Resend ";

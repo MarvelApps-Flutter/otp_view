@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otp_view_app/Views/login_page.dart';
+import 'package:otp_view_app/views/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),

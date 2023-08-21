@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:otp_view_app/Constants/assets_constants.dart';
 import 'package:otp_view_app/Constants/string_constants.dart';
-import 'package:otp_view_app/Views/otp_screen.dart';
+import 'package:otp_view_app/views/otp_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,8 +12,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextEditingController mobileController = TextEditingController();
+  double screenHeight = 0;
+  double screenWidth = 0;
   @override
   Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -34,23 +38,23 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.04,
+          horizontal: screenWidth * 0.04,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             loginPageHeader(),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
+              height: screenHeight * 0.04,
             ),
             imageSection(),
             enterMobileNumberText(),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.02,
+              height: screenHeight * 0.02,
             ),
             mobileTextFiledSection(),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+              height: screenHeight * 0.03,
             ),
             sendOtpSection()
           ],
@@ -63,17 +67,16 @@ class _LoginPageState extends State<LoginPage> {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return OTpView(
+          return OTPView(
             mobileNumber: mobileController.text,
           );
         }));
       },
       child: Container(
         alignment: Alignment.center,
-        height: MediaQuery.of(context).size.height * 0.06,
-        width: MediaQuery.of(context).size.width * 0.4,
+        height: screenHeight * 0.06,
+        width: screenWidth * 0.4,
         decoration: BoxDecoration(
-            //color: Colors.orange.shade900,
             color: Color(0xFFFF5840),
             borderRadius: const BorderRadius.all(Radius.circular(30))),
         child: const Text(
