@@ -1,5 +1,5 @@
-# Flutter WebView Module
-A new flutter app for demonstrating WebView.
+# Flutter OTP View Module
+A new flutter app for demonstrating OTP View.
 
 # Demo
   <table>
